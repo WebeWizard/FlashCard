@@ -5,7 +5,9 @@
   "main": "index.coffee",
   "dependencies": {
     "react": "^15.0.1",
-    "react-dom": "^15.0.1"
+    "react-dom": "^15.0.1",
+    "react-redux": "^4.4.2",
+    "redux": "^3.4.0"
   },
   "devDependencies": {
     "coffee-loader": "^0.7.2",

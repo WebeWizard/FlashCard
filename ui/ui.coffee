@@ -1,25 +1,20 @@
 React = require 'react'
 {div,h1} = React.DOM
+{Provider, connect} = require 'react-redux'
 Card = React.createFactory require './card'
+ProviderFactory = React.createFactory Provider
 
 UI = React.createClass
   displayName: 'UI'
-
-  getInitialState: () ->
-    i: 0
-
-  _nextCard: () ->
-    i = @state.i+1
-    if i >= @props.fronts.length then i = 0
-    @setState
-      i: i
-
   render: ->
-    div
-      id: "card-container"
-      Card
-        onClick: @_nextCard
-        front: @props.fronts[@state.i]
-        back: @props.backs[@state.i]
+    #Provider makes the Redux store available to any connected components
+    ProviderFactory
+        store: @props.store
+        div
+          id: "card-container"
+          Card
+            onClick: @props.nextCardClick
+            front: @props.front
+            back: @props.back
 
 module.exports = UI
