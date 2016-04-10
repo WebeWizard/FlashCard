@@ -1,6 +1,11 @@
 React = require 'react'
 ReactDOM = require 'react-dom'
+require './main.css'
 
-Hello =  React.createFactory require './ui/hello'
+UI =  React.createFactory require './ui/ui'
 
-ReactDOM.render Hello( color: 'red'), document.getElementById('content')
+fronts = ["hello","hi","howdy"]
+backs = ["world","earth","pardner"]
+
+ReactDOM.render UI( { fronts: fronts, backs: backs } )
+  , document.getElementById('content')

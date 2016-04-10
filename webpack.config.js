@@ -9,6 +9,10 @@ module.exports = {
     module: {
         loaders: [
             {
+              test: /\.css$/,
+              loader: 'style-loader!css-loader'
+            },
+            {
               test: /\.coffee$/,
               loader: 'coffee-loader'
             }
@@ -20,6 +24,6 @@ module.exports = {
         'react': 'React'
     },
     resolve: {
-        extensions: ['', '.js', '.coffee']
+        extensions: ['', '.js', '.coffee', '.css']
     }
 }
