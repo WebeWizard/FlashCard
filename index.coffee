@@ -1,3 +1,4 @@
+_ = require 'lodash'
 React = require 'react'
 ReactDOM = require 'react-dom'
 {createStore} = require 'redux'
@@ -9,20 +10,30 @@ UI =  React.createFactory require './ui/ui'
 fronts = ["hello","hi","howdy"]
 backs = ["world","earth","pardner"]
 
+initialState =
+  index: 0
+  frontVisible: true
+  backVisible: true
+
 # State reducer, takes an existing state and returns an updated one
-reducer = (state=0, action) ->
+reducer = (state=initialState, action) ->
+  newState = _.create state
   switch action.type
     when 'NEXT_CARD'
-      if state+1 is fronts.length then 0 else state+1
-    else state
+      if state.index+1 is fronts.length then newState.index=0 else newState.index+=1
+      newState.frontVisible = true
+      newState.backVisible = true
+    when 'TOGGLE_SIDE_VISIBLE'
+      newState["#{action.side}Visible"] = !newState["#{action.side}Visible"]
+  newState
 
 # Create a redux store using the provided reducer
 store = createStore reducer
 
 # Updates props of connected components when state changes
 mapStateToProps = (state) ->
-  front: fronts[state]
-  back: backs[state]
+  front: fronts[state.index]
+  back: backs[state.index]
 
 # Passes action dispatchers to connected components as props
 mapDispatchToProps = (dispatch) ->

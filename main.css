@@ -5,6 +5,10 @@ body {
 #card-container {
   background-color: rgba(255,255,255,0.25);
   color: white;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;
   width: 100%;
   height: 400px;
 }
@@ -23,4 +27,13 @@ body {
   width: 400px;
   height: 200px;
   margin-left: 10px;
+}
+
+#nextCardButton {
+  margin-top: 15px;
+  margin-left: 315px;
+  float: left;
+  width: 200px;
+  height: 50px;
+  background-color: rgba(255,255,255,0.25);
 }

@@ -4,6 +4,7 @@
   "description": "Simple React FlashCard App",
   "main": "index.coffee",
   "dependencies": {
+    "lodash": "^4.10.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.2",
