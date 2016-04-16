@@ -1,6 +1,5 @@
 React = require 'react'
 {div,span} = React.DOM
-_ = require 'lodash'
 
 Side = React.createClass
   displayName: 'Side'
@@ -8,16 +7,17 @@ Side = React.createClass
   render: ->
     hide = (side) =>
       =>
+        console.log @props
         @props.hideSide side
 
     div
       id: @props.side
       className: 'side'
       onClick: hide @props.side
-      span
-        style:
-          visibility: unless @props.visible[@props.side] then 'hidden'
+      if @props.visible[@props.side]
         @props.text
+
+
 
 
 module.exports = Side

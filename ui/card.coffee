@@ -33,9 +33,7 @@ Card = React.createClass
       newSideFactory
         side: "back"
         text: @props.back
-      div
-        id: 'nextCardButton'
-        onClick: @props.onClick
-        "Next Card"
+
+
 
 module.exports = Card
